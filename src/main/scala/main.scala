@@ -3,16 +3,15 @@ import SearchingAlgorithms.SearchingAlgoImpl
 
 @main
 def main(): Unit = {
-  var arr:Array[Int] = Array(5,9,3,1,2,8,4,7,6)
+  var arr:Array[Int] = Array(4,1,3,2,16,9,10,14,8,7)
 
-  // var instanceSortingAlgo:SortingAlgoImpl = SortingAlgoImpl()
-   var heapMethodsImplInstance:HeapMethodsImpl = HeapMethodsImpl()
+  var instanceSortingAlgo:SortingAlgoImpl = SortingAlgoImpl()
    println("----------------Before-------------")
    for(num <- arr){
      println(num)
    }
    println("\n")
-    arr = heapMethodsImplInstance.create_heap(arr)
+  instanceSortingAlgo.heap_sort(arr)
    println("----------------After--------------")
    for (num <- arr) {
      println(num )

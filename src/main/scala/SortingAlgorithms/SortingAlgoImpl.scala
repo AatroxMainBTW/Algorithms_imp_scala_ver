@@ -1,5 +1,6 @@
 package SortingAlgorithms
 import SearchingAlgorithms.SearchingAlgoImpl
+import SortingAlgorithms.HeapMethodsImpl
 class SortingAlgoImpl extends SortingAlgoImplInterface {
 
 
@@ -60,6 +61,20 @@ class SortingAlgoImpl extends SortingAlgoImplInterface {
   }
 
   override def heap_sort(arr: Array[Int]): Unit = {
+    val n = arr.length
+    var heapMethodsInstance:HeapMethodsImpl = HeapMethodsImpl()
+    // Build max heap
+    for (i <- n / 2 - 1 to 0 by -1) {
+      heapMethodsInstance.heapify(arr, n, i)
+    }
 
-  }
-}
+    // Extract elements from heap one by one
+    for (i <- n - 1 to 1 by -1) {
+      // Swap root and last element
+      val swap = arr(0)
+      arr(0) = arr(i)
+      arr(i) = swap
+
+      heapMethodsInstance.heapify(arr, i, 0)
+    }
+  }}
